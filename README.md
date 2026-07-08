@@ -24,8 +24,8 @@ redundant data and unnecessary processing.
 4. Results also saved to `data/latest_rates.csv` for cloud runs
 
 ## How to Run Locally
-`pip install -r requirements.txt`
-`python src/pipeline.py`
+pip install -r requirements.txt
+python src/pipeline.py
 
 ## Automated Scheduling
 GitHub Actions workflow in `.github/workflows/daily_fetch.yml` 
