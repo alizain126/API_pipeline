@@ -5,6 +5,7 @@ from datetime import datetime
 
 # only import SQL libraries if available (not on GitHub Actions)
 try:
+    import pyodbc
     from sqlalchemy import create_engine, text
     SQL_AVAILABLE = True
 except ImportError:
