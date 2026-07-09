@@ -77,16 +77,14 @@ if __name__ == "__main__":
     df = fetch_rates()
     print(df)
 
-    # save to CSV (for GitHub Actions demo)
-    import os
+    # always save to CSV
     os.makedirs("data", exist_ok=True)
-    output_path = "data/latest_rates.csv"
-    df.to_csv(output_path, index=False)
-    print(f"Saved to {output_path}")
+    df.to_csv("data/latest_rates.csv", index=False)
+    print("Saved to data/latest_rates.csv")
 
-    # load to SQL Server (local only)
-    try:
+    # only try SQL if libraries available (local only)
+    if SQL_AVAILABLE:
         print("Loading to database...")
         load_incremental(df)
-    except Exception as e:
-        print(f"DB load skipped (likely running on GitHub): {e}")
+    else:
+        print("SQL skipped — running on GitHub Actions")
