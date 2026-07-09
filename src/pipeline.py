@@ -1,7 +1,13 @@
 import requests
 import pandas as pd
-from sqlalchemy import create_engine, text
-from datetime import datetime
+import os
+
+# only import SQL libraries if available (not on GitHub Actions)
+try:
+    from sqlalchemy import create_engine, text
+    SQL_AVAILABLE = True
+except ImportError:
+    SQL_AVAILABLE = False
 
 # ── CONFIG ──────────────────────────────────────────
 API_KEY       = "f56245b208d6cd2a3f5e8899"
